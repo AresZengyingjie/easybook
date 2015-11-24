@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="keyword" content="附近医院,医院预约,医院地址,医院电话,医院官网,三甲医院,妇科医院,皮肤科医院,耳鼻喉科医院,儿科医院"><meta name="description" content=""><title>searchHosp</title>
+
+<!--线上设置 if(true/false)用来启用/禁用 -->
+        
+ <!--[if IE]>
+    <script src="http://yi.baidu.com/static/pc/201511032020/asset/common/js/html5.js"></script>
+ <![endif]--><link rel="stylesheet" href="/static/hospital.css"><script charset="utf-8" src="/static/v.js"></script><script data-require-id="search/hospitals/hospital" src="/static/hospital.js" async=""></script><script data-require-id="common/js/config" src="/static/config.js" async=""></script><script src="/static/bdys.js"></script><script data-require-id="search/search" src="/static/search.js" async=""></script><script data-require-id="home/department-detail" src="/static/department-detail.js" async=""></script><script data-require-id="common/js/ajax" src="/static/ajax.js" async=""></script><script data-require-id="common/js/pagination" src="/static/pagination.js" async=""></script></head><body><header class="header"><header id="fastTop" class="header" style="height: 100px;">
+  <div class="log_top_box">
+    <div class="top-box" id="header" data-cover="true" data-login="" data-listtype="null" data-paramdata="{&quot;sessionid&quot;:&quot;1447050292862879&quot;,&quot;pssid&quot;:&quot;&quot;,&quot;pvid&quot;:1447050295486585,&quot;ajaxid&quot;:0,&quot;tn&quot;:&quot;NONE&quot;,&quot;zt&quot;:&quot;fcpc&quot;,&quot;zt_ext&quot;:&quot;&quot;,&quot;wd&quot;:&quot;&quot;,&quot;bidwordid&quot;:&quot;24082352951&quot;,&quot;creatid&quot;:&quot;7738796172&quot;,&quot;matchtype&quot;:&quot;2&quot;,&quot;bidword&quot;:&quot;\u6302\u53f7\u7f51\u4e0a\u9884\u7ea6&quot;}">
+      <span class="top-home">
+        | <a target="_blank" href="index.html"><img class="top-icon-img" src="/static/icon-home.png"> 首页 </a>
+      </span>
+              <div class="login"><div class="my-doctor"><h3>你好，{{user.username}}<i class="my-space"></i></h3><span class="fa fa-chevron-down logout"><div class="user lg-out" style="z-index:1000;"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/"><li class="logout-li" style="padding-left:20px;">退出登录</li></a></ul></div></span></div><div class="my-doctor" style="z-index:100;"><div class="notice"></div><h3>我的快捷挂号<i class="my-space"></i><span class="fa fa-chevron-down logined"><div class="user lg-in"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/mybook/{{user.username}}" target="_blank"><li class="order">我的预约</li></a><a href="http://yi.baidu.com/pc/my/evaluation#evaluation?sessionid=1447375053850477&amp;pssid=&amp;pvid=1447375053850477&amp;ajaxid=0&amp;tn=NONE&amp;zt=fcpc&amp;zt_ext=&amp;wd=&amp;bidwordid=24082352951&amp;creatid=7738796172&amp;matchtype=2&amp;bidword=%E6%8C%82%E5%8F%B7%E7%BD%91%E4%B8%8A%E9%A2%84%E7%BA%A6" target="_blank"><li class="comment">我的评价</li></a></ul></div></span></h3></div></div>
+          </div>
+  </div>
+  <div class="search_box">
+    <span class="logo">
+      <a href=""><img src="/static/logo.png" alt="百度医生"></a>
+    </span>
+    <span class="border"></span>
+    <div class="area">
+          <div class="area-border" style="display: block;">
+        <span>
+          <!--<i class="fa fa-map-marker" style="text-indent:10px"></i>-->
+          <span id="current-area" title="哈尔滨" data-provid="15" data-provtag="">哈尔滨</span>
+        </span>
+        <span id="area_change">[切换地址]</span>
+        <div class="select-city" style="display:none;">
+          <span class="top-border"></span>
+          <div class="hot-city-list">
+            <em>热门</em>
+                          <a href="" target="_blank">福州</a>
+                          <a href="" target="_blank">武汉</a>
+                          <a href="" target="_blank">深圳</a>
+                          <a href="" target="_blank">南昌</a>
+                          <a href="" target="_blank">西安</a>
+                          <a href="" target="_blank">北京</a>
+                          <a href="" target="_blank">上海</a>
+                      </div>
+        </div>
+      </div>
+        </div>
+    <div class="keyword">
+      <form method="get" id="med_form">
+              <input data-value="" type="text" name="key" autocomplete="off" placeholder="请输入医院/科室/疾病/症状/医生姓名" class="gray" id="search-tips-input" value="">
+                  <button type="button" class="btn-doctor" id="querySearch">搜&nbsp;索</button>
+      </form>
+    </div>
+    
+  </div>
+</header></header><div class="wrap"><div class="container"><div class="hospital-list" data-isrecommend="0"><div class="content-left"><div class="depart-select"><div class="select-detail hospital-type" data-type="3"><h4>医院类型:</h4><ul class="dropmenus"><a href= "/searchHosp/{{user.username}}"><li data-value="0" class="select-cur">全部</li></a>
+
+{% for hosT in hosTList %}
+<a href="/selecthosp1/{{hosT.hosTypeid}}/{{user.username}}" ><li data-department-flag="1" data-value="0" >{{hosT.hosType}}</li></a>
+{% endfor%}
+</ul></div>
+
+<div class="select-detail hospital-level" data-type="3"><h4>医院级别:</h4><ul class="dropmenus"><a  href= "/searchHosp/{{user.username}}"><li data-value="0" class="select-cur">全部</li></a>
+{% for hosC in hosCList %}
+<a href="/selecthosp2/{{hosC.hosClassid}}/{{user.username}}"><li data-value="12">{{hosC.hosClass}}</li></a>
+{% endfor%}
+</ul></div></div></div>
+
+<ul id="hospital-list-ul">
+ {% for hos in hosList %}
+<li class="hospital-info-li"><div class="hospital-info"><div class="hospital-pic"><a href="/hospitalInfor/{{hos.hospitalid}}/{{user.username}}/"><img src="/static/{{hos.name}}.jpg"></a></div><div class="hospital-introduces"><div class="introduces-title"><a href="/hospitalInfor/{{hos.hospitalid}}/{{user.username}}/">{{hos.name}}</a><span class="hospital-sign">{{hos.quality}}</span><span class="hospital-health">{{hos.insurance}}</span></div><table cellspacing="0" cellpadding="0"><tbody><tr><td valign="" class="first-child">医院地址: </td><td class="info-pos last-child"><p class="address">{{hos.address}}</p><a href="" class="marker" target="_blank"><i class="fa fa-map-marker"></i>查看地图</a></td></tr><tr class="last-child-tr"><td valign="" class="first-child">提供服务: </td><td valign="" class="server last-child">{{hos.service}}</td></tr></tbody></table><label><span>295</span>位可挂号医生<span> | </span><span>640</span>人预约成功</label></div></div></li>
+{% endfor%}
+</ul>
+
+<div class="pagination-x pull-right"></div></div><div id="feedback" class="back" style="bottom: 20px;"><a href="script:void(0)" class="back-top" id="back-top"><img data-srchover="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/top_hover.png" data-src="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/top_normal.png" src="/static/top_normal.png"></a><a href="" target="_blank" class="feedback" id="back"><img data-srchover="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/feedback_hover.png" data-src="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/feedback_normal.png" src="/static/feedback_normal.png"></a></div></div><input type="hidden" id="search-tag" value=""><aside class="right-sidebar">
+	<article class="broad" style="border-bottom:none; margin-bottom:0px;">
+		<h1 class="title">挂号规则</h1>
+		<div class="ct">
+			<p class="depics"><b class="sq">1.</b>每日8:00左右更新后一天号源</p>
+			<p class="depics"><b class="sq">2.</b>可预约当天和未来2周号源</p>
+			<p class="depics"><b class="sq">3.</b>请参考短信提示，到医院就诊</p>
+			<p class="depics"><b class="sq">4.</b>就诊前一天16:00前致电客服010-59928658，可取消预约单。</p>
+		</div>
+	</article>
+		<article class="broad" style="margin-bottom:0px;">
+			<h1 class="title">帮助中心</h1>
+		<div class="ct">
+			
+			<p class="depics"><b class="sq">2.</b><a target="_blank" href="">如何选择医生？</a></p>
+			<p class="depics"><b class="sq">3.</b><a target="_blank" href="">如何预约医生？</a></p>
+			<p class="depics"><b class="sq">4.</b><a target="_blank" href="">如何评价医生？</a></p>
+			<a class="more" target="_blank" href="http://yi.baidu.com/pc/helpcenter/help?sessionid=1447050292862879&pssid=&pvid=1447050295486585&ajaxid=0&tn=NONE&zt=fcpc&zt_ext=&wd=&bidwordid=24082352951&creatid=7738796172&matchtype=2&bidwor">查看更多&gt;</a>
+		</div>
+	</article>
+	
+</aside><div class="result-empty hospital-empty" style="display:none"><img src="/static/no-hospital.png" class="resultimg"><div class="result-text">抱歉！没有符合条件的医院</div></div></div><footer id="footer-three" class="footer-box footer-three clear path" data-src="" data-href="" data-api="" data-passport="">
+
+  <div class="footer-con">
+
+    <div class="footer-info-url">
+      <dd class="fo-link">
+        <a href="" target="_blank"><span>帮助</span>|</a>
+        <a href="" target="_blank"><span> 意见协议</span>|</a>
+        <a href="" target="_blank"><span> 意见反馈<span></span></span></a>
+      </dd>
+  </div>
+
+</div></footer>
+<script src="/static/hm.js"></script><script src="/static/esl.js"></script><script src="/static/jquery-1.11.2.min.js"></script><script src="/static/2.0.1.2.js"></script><script src="/static/uni_login_wrapper.js"></script><script src="/static/passport.js"></script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?2129ef9891a442299befc9c664fc73e3";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script><script>require.config({'baseUrl': 'http://yi.baidu.com/static/pc/201511032020/asset','paths': {},'packages': [{}]});$("#login").off().on('click', function(event){showLoginPop('',event);});function showLoginPop(func,event){if(event != undefined){baidu.event.preventDefault(event || window.event);}initLogin(func);var isShow = localStorage.getItem('isPopForm');$('#passport-login-pop').remove();if (isShow){localStorage.removeItem('isPopForm');}localStorage.setItem('isPopLogin', true);}</script><!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="http://yi.baidu.com/static/pc/201511032020/asset/common/js/selectivizr-min.js"></script><noscript><link rel="stylesheet" href="[fallback css]" /></noscript><![endif]--><script src="/static/jquery-1.11.2.min.js"></script><script src="/static/passport.js"></script><script>require(['search/hospitals/hospital','common/js/config'], function(hospital,config) {$('.city-index span').on('click', function() {$('.city-list div').hide().eq($('.city-index span').removeClass('border-bottom3px').addClass('border-bottom1px').index($(this).attr('class', 'border-bottom3px'))).show();});$('.area-border').on('mouseenter', function() {$(this).find('.city-index').find('span').attr('class', 'border-bottom1px');$(this).find('.city-list').find('div').hide();var index = 1;$(this).find('.city-index').find('span').eq(index).attr('class', 'border-bottom3px');$(this).find('.city-list').find('div').eq(index).show();$(this).css('border-color', '#eaeaea').find('.select-city').show();}).on('mouseleave', function() {$(this).css('border-color', '#ffffff').find('.select-city').hide();});hospital.init();config.init();config.keyWord({"sessionid":"1447050292862879","pssid":"","pvid":1447050295486585,"ajaxid":0,"tn":"NONE","zt":"fcpc","zt_ext":"","wd":"","bidwordid":"24082352951","creatid":"7738796172","matchtype":"2","bidword":"\u6302\u53f7\u7f51\u4e0a\u9884\u7ea6"});});</script><script>var Hunter = window.Hunter || {};Hunter.userConfig = Hunter.userConfig || [];Hunter.userConfig.push({hid: 71920});with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://img.baidu.com/hunter/bdys.js?st='+~(new Date()/864e5)];</script></body></html>

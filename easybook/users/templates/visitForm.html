@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>visitForm</title>
+
+<!--线上设置 if(true/false)用来启用/禁用 -->
+        
+
+ <!--[if IE]>
+    <script src="http://yi.baidu.com/static/pc/201511032020/asset/common/js/html5.js"></script>
+ <![endif]--><link rel="stylesheet" href="/static/order.css"><!--[if IE]><script src="http://yi.baidu.com/static/pc/201511032020/asset/common/js/html5.js"></script><![endif]--><script charset="utf-8" src="/static/v.js"></script><script data-require-id="order/order" src="/static/order.js" async=""></script><script src="/static/bdys.js"></script><script data-require-id="common/js/ajax" src="/static/ajax.js" async=""></script><script data-require-id="order/validate" src="/static/validate.js" async=""></script></head><body><header class="header">
+        <div class="top" id="header" data-login="1" data-listtype="null" data-paramdata="{&quot;sessionid&quot;:1447258897815349,&quot;pssid&quot;:&quot;&quot;,&quot;pvid&quot;:1447258897815349,&quot;ajaxid&quot;:0,&quot;tn&quot;:&quot;NONE&quot;,&quot;zt&quot;:&quot;self&quot;,&quot;zt_ext&quot;:&quot;&quot;,&quot;wd&quot;:&quot;&quot;}">
+  <span class="logo" id="fastTop">
+    <a href=""></a>
+      </span>
+
+    <div class="login"><div class="my-doctor"><h3>你好，{{user.username}}<i class="my-space"></i></h3><span class="fa fa-chevron-down logout"><div class="user lg-out" style="z-index:1000;"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/"><li class="logout-li" style="padding-left:20px;">退出登录</li></a></ul></div></span></div><div class="my-doctor" style="z-index:100;"><div class="notice"></div><h3>我的快捷挂号<i class="my-space"></i><span class="fa fa-chevron-down logined"><div class="user lg-in"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/mybook/{{user.username}}" target="_blank"><li class="order">我的预约</li></a><a href="http://yi.baidu.com/pc/my/evaluation#evaluation?sessionid=1447375053850477&amp;pssid=&amp;pvid=1447375053850477&amp;ajaxid=0&amp;tn=NONE&amp;zt=fcpc&amp;zt_ext=&amp;wd=&amp;bidwordid=24082352951&amp;creatid=7738796172&amp;matchtype=2&amp;bidword=%E6%8C%82%E5%8F%B7%E7%BD%91%E4%B8%8A%E9%A2%84%E7%BA%A6" target="_blank"><li class="comment">我的评价</li></a></ul></div></span></h3></div></div>
+  </div>
+
+
+
+    </header>
+	<div class="wrap"><div class="title"><p><a href="index.html">首页</a> &gt; <a href="doctorInfor.html">医生详情页</a> &gt;填写预约信息</p></div><div class="container"><p class="doctor-title">已选择的医生</p><div class="doctor-info"><div class="info-pic"><img src="/static/e824b899a9014c08c76f72be0c7b02087bf4f451.jpg"></div><div class="infos"><div class="info-title"><div>{{doc.docname}}</div></div><p class="info-hospittal"><span>{{doc.hosp}}</span>{{doc.depa}}</p><p class="info-pos"><span>医院地址：</span>{{hos.address}}</p></div><div class="info-time"><span>就诊时间：</span>2015-11-12(星期四)上午</div></div><div class="write-list"><p class="doctor-title">请填写预约信息<span>(输入的预约信息，我们将为你保密)</span><span class="right-info"><span>*</span>为必填项</span></p><table><tbody>
+	
+	<form action="/addbook/{{doc.doctorid}}/{{user.username}}/" method="get">
+	<tr><td class="label">就诊人</td><td class="essential-mark"><span class="star-red">*</span></td><td><div class="widget-input" id="widget-input-name"><input type="text" name="patient-name"><span class="right" style="display:none;"><i class="instant-state fa fa-check-circle"></i></span><span class="wrong" style="display:none;"><i class="instant-state fa fa-times-circle"></i><i id="name-wrong-info"></i></span></div></td></tr>
+	
+	<tr id="id-card-tr"><td class="label">身份证号</td><td class="essential-mark"><span class="star-red">*</span></td><td><div class="widget-input"><input type="text" name="id-card"><span class="right" style="display:none;"><i class="instant-state fa fa-check-circle"></i></span><span class="wrong" style="display:none;"><i class="instant-state fa fa-times-circle"></i><i id="idcard-wrong-info"></i></span></div></td></tr>
+	
+	<tr><td class="label">联系手机</td><td class="essential-mark"><span class="star-red">*</span></td><td><div class="widget-input"><input type="text" name="phone"><span class="right" style="display:none;"><i class="instant-state fa fa-check-circle"></i></span><span class="wrong" style="display:none;"><i class="instant-state fa fa-times-circle"></i><i id="phone-wrong-info"></i></span></div></td></tr>
+	
+	<tr><td></td><td></td><td><div class="widget-input submit-button" style="margin-top:29px;"><button type="submit"><span id="submit-order" class="submit-but action">提交预约单</span></button></div></td></tr>
+	</form>
+	
+	</tbody></table></div></div></div><footer class="footer clear path" data-src="http://yi.baidu.com/static/pc/201511032020/asset" data-href="" data-api="http://yi.baidu.com" data-passport="https://passport.baidu.com">
+    <div class="footer-container">
+        <dd>
+            <a href="" target="_blank">帮助</a>
+            <a href="" target="_blank">联系客服</a>
+            <a href="" target="_blank">意见反馈</a>
+        </dd>
+        
+    </div>
+</footer>
+
+
+<script src="/static/hm.js"></script><script src="/static/esl.js"></script>
+<script src="/static/jquery-1.11.2.min.js"></script>
+<script src="/static/2.0.1.2.js"></script>
+<script src="/static/uni_login_wrapper.js"></script>
+<script src="/static/passport.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?2129ef9891a442299befc9c664fc73e3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<script>
+    require.config({
+        'baseUrl': 'http://yi.baidu.com/static/pc/201511032020/asset',
+        'paths': {},
+        'packages': [{}]
+    });
+   define('global/env', {"isLogin":false,"isLoginInt":0,"userName":"","passId":0,"msgCount":0,"passportLoginUrl":false,"passportLogoutUrl":"https:\/\/passport.baidu.com\/?logout&u=&tpl=bddoctor","passportRegisterUrl":"https:\/\/passport.baidu.com\/v2\/?reg&tpl=bddoctor&u=","logoLink":"http:\/\/yi.baidu.com\/pc?sessionid=1446989195495577&pssid=&pvid=1447048279578002&ajaxid=0&tn=NONE&zt=fcpc&zt_ext=&wd=&bidwordid=24082352951&creatid=7738796172&matchtype=2&bidword=%E6%8C%82%E5%8F%B7%E7%BD%91%E4%B8%8A%E9%A2%84%E7%BA%A6"});
+   define('global/site', "");
+
+
+   $("#login").off().on('click', function(event){
+        
+        /*modify by yuhaiqiang
+        baidu.event.preventDefault(event || window.event);
+		var isShow = localStorage.getItem('isPopForm');
+		console.log(isShow);
+		if (isShow)
+		{
+		    $('#passport-login-pop').remove();
+			localStorage.removeItem('isPopForm');
+		}
+        instance.show();//显示浮层
+        */
+        showLoginPop('',event);
+    });
+    function showLoginPop(func,event){
+      if(event != undefined){
+          baidu.event.preventDefault(event || window.event);
+      }
+      initLogin(func);
+
+  		var isShow = localStorage.getItem('isPopForm');
+  		$('#passport-login-pop').remove();
+  		if (isShow){
+  			localStorage.removeItem('isPopForm');
+  		}
+      localStorage.setItem('isPopLogin', true);
+    }
+</script>
+
+
+
+
+
+
+
+
+<div class="popwin-info" style="display:none;"><div class="cover"></div><div class="add-card"><div class="card-header"><span class="card-title">提示</span></div><div class="card-con-info"><p></p><div class="card-but"><input type="button" class="back-button" value="返回修改"></div></div></div></div><script src="/static/rsa.js"></script><script src="/static/ajaxfileupload.js" type="text/javascript"></script><!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="http://yi.baidu.com/static/pc/201511032020/asset/common/js/selectivizr-min.js"></script><noscript><link rel="stylesheet" href="[fallback css]" /></noscript><![endif]--><script>require(['order/order'], function(order) {order['op'] = "add";order['status'] = "0";order['doctorId'] = "70114";order['treatTime'] = "2015-11-12";order['needCard'] = "1";order['needCardPassword'] = "";order['displayDisDesc'] = "0";if (1 == 1) {order['treatInterval'] = "上午";} else if (1 == 2) {order['treatInterval'] = "下午";} else {order['treatInterval'] = "晚上";}var week = ["", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];order['day'] = week[4];var showAppointList = 0;var yhwTag =  "fcpc";var treatTime = 2015-11-12;var treatInterval  =1;if(treatTime && treatInterval && showAppointList ==0 ){$('.info-time').html('<span>就诊时间：</span>2015-11-12' +'('+order['day']+')'+ order['treatInterval']);}order['treatInterval'] = 1;order.nowSelectedPatient = -1;order.nowPatientList = [];if (order.op == "edit") {var ajImg = $('.fileupload img');for (var i=0; i<ajImg.length; i++) {order.img[i] = {};order.img[i].smallImg = ajImg.eq(i).attr('src');order.img[i].bigImg = ajImg.eq(i).data('bigimg');order.img[i].flag = true;}var len = 0;var aStr = [];for (var i=len; i<5; i++) {aStr.push('<li>');aStr.push('<input id="file'+ (i+1) +'" type="file" name="file'+ (i+1) +'" accept="image/*" class="fileupload-input">');aStr.push('<div style="display:none;">');aStr.push('<img class="img" src="">');aStr.push('<span data-index="'+ i +'" class="delete">x</span>');aStr.push('</div>');}$('.fileupload').append($(aStr.join('')));$('#patient-name, #id-card').on('focus', function() {this.blur();});$('#patient-name').val("");$('#id-card').val("");$('#phone-number').val("");$('#captcha-input').val("");$('#condition').val("");order.nowSelectedPatient   = 0;order.nowPatientList[0] = {};order.nowPatientList[0].id = "";order.nowPatientList[0].name = "";order.nowPatientList[0].patientId = "";order.aptId = "";order.visitType = "";}if (order.op == "add") {var ajImg = $('.fileupload img');for (var i=0; i<ajImg.length; i++) {order.img[i] = {};order.img[i].smallImg = localStorage.getItem('pic'+(i+1)+'_small');order.img[i].bigImg = localStorage.getItem('pic'+(i+1)+'_big');order.img[i].flag = true;}}if(yhwTag=='yhw' && showAppointList === 1){var creatTimeListObj = {};creatTimeListObj.appointTime = null;creatTimeListObj.selectedAppointTimeIndex = null;order.init(creatTimeListObj);}else{order.init();}order['siteFrom'] = "";if (order['siteFrom'] == 'hdf') {}order.addDomEvent();});</script><script>var Hunter = window.Hunter || {};Hunter.userConfig = Hunter.userConfig || [];Hunter.userConfig.push({hid: (function(){var typeCheck = 'add';if (typeCheck == 'add') {return 71917;}else if(typeCheck == 'edit') {return 72096;}})()});</script><script>with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://img.baidu.com/hunter/bdys.js?st='+~(new Date()/864e5)];</script>
+</body></html>
