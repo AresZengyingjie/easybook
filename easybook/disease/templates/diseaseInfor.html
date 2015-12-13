@@ -44,10 +44,7 @@
       </div>
         </div>
     <div class="keyword">
-      <form method="get" id="med_form">
-              <input data-value="哈尔滨 感冒" type="text" name="key" autocomplete="off" placeholder="请输入医院/科室/疾病/症状/医生姓名" id="search-tips-input" value="哈尔滨 感冒">
-                  <button type="button" class="btn-doctor" id="querySearch">搜&nbsp;索</button>
-      </form>
+      <form action="/search_result/{{user.username}}/" method="get" id="med_form"><input type="text" name="key" autocomplete="off" placeholder="请输入医院/科室/疾病/症状/医生姓名" class="gray" id="search-tips-input" value="请输入医院/科室/疾病/症状/医生姓名"><button type="submit" style="width :96px; height:36px;border:0;font-size:17px;background-color: #2896f3;cursor: pointer;color: #fff;">搜&nbsp;索</button></form>
     </div>
   </div>
 </header><div class="wrap"><div class="container" style="width:1004px;"><div class="title index-title" style="margin:0px"><p><a href="">首页 </a>&gt; 疾病详情页</p></div><article class="depart-title"><div class="disease-title"><img src="/static/d833c895d143ad4b65f1419d84025aafa50f068b.jpg"><div class="disease-info"><h2 data-id="8462" id="disease_name" data-value="感冒">{{dise.disename}}<span>(别名：{{dise.disenamel}})</span></h2><p>疾病症状：<span> 
@@ -59,7 +56,7 @@
 
 <div class="doctail-detail"><ul id="dictor-list-ul">
 {% for doc in docList %}
-<li><a href="/doctorInfor/{{doc.doctorid}}/{{user.username}}" target="_blank"><img src="/static/d043ad4bd11373f0fb653584a20f4bfbfbed0456.jpg"></a><div class="doctor-opacity"></div><p><a target="_blank" href="/doctorInfor/{{doc.doctorid}}/{{user.username}}" alt="undefined" title="undefined"><span>{{doc.docname}}</span></a>&nbsp;<span class="doctor-level">{{doc.prof}}</span></p><p>{{doc.depa}}</p><p title="黑龙江省医院">{{doc.hosp}}</p><p class="skill">擅长:&nbsp;{{doc.goodat}}</p><p class="btn-appoint"><a target="_blank" href="/doctorInfor/{{doc.doctorid}}/{{user.username}}"><span>一键预约</span></a></p></li>
+<li><a href="/doctorInfor/{{doc.doctorid}}/{{user.username}}" target="_blank"><img src="/static/{{doc.doctorid}}.jpg"></a><div class="doctor-opacity"></div><p><a target="_blank" href="/doctorInfor/{{doc.doctorid}}/{{user.username}}" alt="undefined" title="undefined"><span>{{doc.docname}}</span></a>&nbsp;<span class="doctor-level">{{doc.prof}}</span></p><p>{{doc.depa}}</p><p title="黑龙江省医院">{{doc.hosp}}</p><p class="skill">擅长:&nbsp;{{doc.goodat}}</p><p class="btn-appoint"><a target="_blank" href="/doctorInfor/{{doc.doctorid}}/{{user.username}}"><span>一键预约</span></a></p></li>
 {% endfor%}
 </ul></div><div id="next-arrow" class="next-arrow"><img data-gray="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/arrow_disable.png" data-srchover="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/arrow_hover.png" data-src="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/arrow_normal.png" src="/static/arrow_disable.png"></div></div></div></article></div><div class="content" style="display: none; margin-top: 10px;"><aside class="right-sidebar">
 	<article class="broad" style="border-bottom:none; margin-bottom:0px;">

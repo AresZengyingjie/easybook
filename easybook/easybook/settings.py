@@ -49,6 +49,7 @@ INSTALLED_APPS = (
 	'prof',
 	'books',
 	'issue',
+	'advice',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,6 +108,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_HOST = 'smtp.exmail.qq.com'                 
+EMAIL_PORT = 465                                 
+EMAIL_HOST_USER = '842100070@qq.com'       
+EMAIL_HOST_PASSWORD = '1113zeng+++'                  
+EMAIL_SUBJECT_PREFIX = u'[django]'            
+EMAIL_USE_TLS = True                            
+
+SERVER_EMAIL = 'zengyingjie0000@163.com' 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/

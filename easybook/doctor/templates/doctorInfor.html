@@ -19,10 +19,7 @@
     <div class="area">
         </div>
     <div class="keyword">
-      <form method="get" id="med_form">
-              <input data-value="" type="text" name="key" autocomplete="off" placeholder="请输入医院/科室/疾病/症状/医生姓名" class="gray" id="search-tips-input" value="">
-                  <button type="button" class="btn-doctor" id="querySearch">搜&nbsp;索</button>
-      </form>
+      <form action="/search_result/{{user.username}}/" method="get" id="med_form"><input type="text" name="key" autocomplete="off" placeholder="请输入医院/科室/疾病/症状/医生姓名" class="gray" id="search-tips-input" value="请输入医院/科室/疾病/症状/医生姓名"><button type="submit" style="width :96px; height:36px;border:0;font-size:17px;background-color: #2896f3;cursor: pointer;color: #fff;">搜&nbsp;索</button></form>
     </div>
   </div>
 </header></header><div class="wrap"><div class="container"><div class="title"><p><a href="">首页 &gt;</a> 医生详情页</p></div><div class="doctor-main"><div class="doctor-info"><div class="doctor-card clearfix"><div class="info-pic"><img src="/static/e824b899a9014c08c76f72be0c7b02087bf4f451.jpg"></div><div class="infos"><div class="info-title"><div>{{doc.docname}}</div><span>{{doc.prof}}</span><span></span><div class="rate">&nbsp;&nbsp;&nbsp;<!-- <span class="evaluation-total">（&nbsp;评价）</span> --><span>预约成功率：</span><i class="num">99%</i><span></span></div></div><p class="info-hospital"><span>{{doc.hos}}</span>{{doc.depa}}<!-- <span class="doc-td-xg">医生态度<em>9.8</em><i></i>治疗效果<em>9.2</em></span> --></p><table cellspacing="0" cellpadding="0"><tbody><tr><td valign="top">擅长诊治：</td><td>擅长：{{doc.goodat}}</td></tr><tr><td valign="top">医院地址：</td><td class="info-pos">{{hos.address}}<a href="" class="marker" target="_blank"><i class="fa fa-map-marker"></i>查看地图</a></td></tr></tbody></table></div></div><article class="select-card"><p id="select-patient-time" class="select-patient-time">选择就诊时间</p><div class="table">
@@ -123,7 +120,7 @@
                     </td>
                                         <td>
                                                                                     <div class="inner-border opening">
-                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.docname}}">点击预约</a>
+                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.doctorid}}/{{user.username}}/">点击预约</a>
                                                                             </div>
                     </td>
                                         <td>
@@ -138,7 +135,7 @@
                     </td>
                                         <td>
                                                                                     <div class="inner-border opening">
-                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.docname}}">点击预约</a>
+                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.doctorid}}/{{user.username}}/">点击预约</a>
                                                                             </div>
                     </td>
                                         <td>
@@ -226,12 +223,12 @@
                     </td>
                                         <td>
                                                                                     <div class="inner-border opening">
-                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.docname}}">点击预约</a>
+                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.doctorid}}/{{user.username}}/">点击预约</a>
                                                                             </div>
                     </td>
                                         <td>
                                                                                     <div class="inner-border opening">
-                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.docname}}">点击预约</a>
+                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.doctorid}}/{{user.username}}/">点击预约</a>
                                                                             </div>
                     </td>
                                         <td>
@@ -246,7 +243,7 @@
                     </td>
                                         <td>
                                                                                     <div class="inner-border opening">
-                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.docname}}">点击预约</a>
+                                    <a hidefocus="true" class="opening" href="/visitForm/{{doc.doctorid}}/{{user.username}}/">点击预约</a>
                                                                             </div>
                     </td>
                                         <td>

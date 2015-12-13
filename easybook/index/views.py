@@ -6,7 +6,6 @@ from users.models import users
 from prof.models import prof
 from depart.models import depart
 from news.models import news
-from issue.models import issue
 from django.shortcuts import render_to_response
 # Create your views here.
 
@@ -41,17 +40,20 @@ def checkLogin(request):
 	for user in userList:
 		if user.password == password:
 			return render_to_response('index_login.html',{'hosList':hosList,'diseList':diseList,'docList':docList,'newList':newList,'user':user})
-	return render_to_response('error.html')
+	return render_to_response('register.html')
+	
+def index_again(request,username):
+	hosList = hospital.objects.all()
+	diseList = disease.objects.all()
+	docList = doctor.objects.all()
+	newList = news.objects.all()
+	user = users.objects.get(username = username)
+	return render_to_response('index_login.html',{'hosList':hosList,'diseList':diseList,'docList':docList,'newList':newList,'user':user})
  
 def helpIssue(request,username):
-	issueList = issue.objects.all()
 	user = users.objects.get(username = username)
 	return render_to_response('help.html',{'user':user})
 	
-# def issue(request,issid):
-	# issueList = issues.objects.all()
-	# iss = issues.objects.get(issueid = issid)
-	# return render_to_response('issue.html',{'issueList':issueList,'iss':iss})
     
 def search(request,username):
 	user = users.objects.get(username = username)
@@ -65,11 +67,15 @@ def search(request,username):
 		for hos in hosList:
 			if hos.name == text:
 				depList = hos.depart_set.all()
-				return render_to_response('hospitalInfor.html',{'hos':hos,'depList':depList,'profList':profList,'user':user})
+				docList = hos.doctor_set.all()
+				return render_to_response('hospitalInfor.html',{'hos':hos,'depList':depList,'profList':profList,'user':user,'docList':docList})
 	elif diseList:
 		for dise in diseList:
 			if dise.disename == text:
-				return render_to_response('diseaseInfor.html',{'dise':dise,'user':user})
+				depList = dise.dep.all()
+				for depa in depList:
+					docList = depa.doctor_set.all()
+				return render_to_response('diseaseInfor.html',{'dise':dise,'user':user,'docList':docList})
 	elif depList:
 		for dep in depList:
 			if dep.departName == text:
@@ -80,7 +86,7 @@ def search(request,username):
 			if doc.docname == text:
 				return render_to_response('doctorInfor.html',{'doc':doc,'user':user})
 	else:
-		return render_to_response('error.html')
+		return render_to_response('error.html',{'user':user})
 	
     
 

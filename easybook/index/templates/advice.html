@@ -21,7 +21,7 @@
       </span>
 
     <div class="login">
-    <div class="my-doctor"><h3>你好，{{user.username}}<i class="my-space"></i></h3><span class="fa fa-chevron-down logout"><div class="user lg-out" style="z-index:1000;"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/"><li class="logout-li" style="padding-left:20px;">退出登录</li></a></ul></div></span></div><div class="my-doctor" style="z-index:100;"><div class="notice"></div><h3>我的快捷挂号<i class="my-space"></i><span class="fa fa-chevron-down logined"><div class="user lg-in"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/mybook/{{user.username}}" target="_blank"><li class="order">我的预约</li></a><a href="http://yi.baidu.com/pc/my/evaluation#evaluation?sessionid=1447375053850477&amp;pssid=&amp;pvid=1447375053850477&amp;ajaxid=0&amp;tn=NONE&amp;zt=fcpc&amp;zt_ext=&amp;wd=&amp;bidwordid=24082352951&amp;creatid=7738796172&amp;matchtype=2&amp;bidword=%E6%8C%82%E5%8F%B7%E7%BD%91%E4%B8%8A%E9%A2%84%E7%BA%A6" target="_blank"><li class="comment">我的评价</li></a></ul></div></span></h3></div>
+    <div class="my-doctor"><h3>你好，{{user.username}}<i class="my-space"></i></h3><span class="fa fa-chevron-down logout"><div class="user lg-out" style="z-index:1000;"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/"><li class="logout-li" style="padding-left:20px;">退出登录</li></a></ul></div></span></div><div class="my-doctor" style="z-index:100;"><div class="notice"></div><h3>我的快捷挂号<i class="my-space"></i><span class="fa fa-chevron-down logined"><div class="user lg-in"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/mybook/{{user.username}}" target="_blank"><li class="order">我的预约</li></a><a href="/myadvice/{{user.username}}" target="_blank"><li class="comment">我的评价</li></a></ul></div></span></h3></div>
   </div>
   </div>
 
@@ -76,22 +76,52 @@
                         意见反馈
                     </li>
                     <li>
+						<form action="/addadvice/{{user.username}}/" method="get">
                         <div class="feedback-input">
+							<div class="input-item tel-input">
+                                <div><span>疾病名称：</span></div>
+                                <div><input type="text" name="disease" value="{{advice.disease}}"><span class="phone-tip">必填</span></div>
+                            </div>
+							<div class="input-item tel-input">
+                                <div><span>反馈医院：</span></div>
+                                <div><input type="text" name="hos" value="{{advice.hos}}"><span class="phone-tip">必填</span></div>
+                            </div>
+							<div class="input-item tel-input">
+                                <div><span>总推荐度：</span></div>
+                                <div><input type="text" name="recommend" value="{{advice.recommend}}"><span class="phone-tip">（1 - 10）</span></div>
+                            </div>
+							<div class="input-item tel-input">
+                                <div><span>对应科室：</span></div>
+                                <div><input type="text" name="dep" value="{{advice.dep}}"><span class="phone-tip">必填</span></div>
+                            </div>
+							<div class="input-item tel-input">
+                                <div><span>治疗效果：</span></div>
+                                <div><input type="text" name="treatmentEffect" value="{{advice.treatmentEffect}}"><span class="phone-tip">（1 - 10）</span></div>
+                            </div>
+							<div class="input-item tel-input">
+                                <div><span>就诊医师：</span></div>
+                                <div><input type="text" name="doctor" value="{{advice.doctor}}"><span class="phone-tip">必填</span></div>
+                            </div>
+							<div class="input-item tel-input">
+                                <div><span>医师态度：</span></div>
+                                <div><input type="text" name="docAttitude" value="{{advice.docAttitude}}"><span class="phone-tip">（1 - 10）</span></div>
+                            </div>
                             <div class="input-item note-input">
                                 <div><span>意见或建议：</span></div>
                                 <div class="widget-textarea">
                                     <div class="widget-textarea-wrap">
-                                        <textarea placeholder="我们致力于提供最值得依赖的就医服务，每一个建议我们都会认真对待" maxlength="300"></textarea>
+                                        <textarea placeholder="我们致力于提供最值得依赖的就医服务，每一个建议我们都会认真对待" maxlength="300" name="context" ></textarea>
                                     </div>
                                     <p><i>300</i>字</p>
                                 </div>
                             </div>
                             <div class="input-item tel-input">
                                 <div><span>您的电话：</span></div>
-                                <div><input type="text" placeholder=""><span class="phone-tip">选填</span></div>
+                                <div><input type="text" placeholder="" name="tel" value="{{advice.tel}}"><span class="phone-tip">选填</span></div>
                             </div>
-                            <div class="sub-but"><span>提交</span></div>
+                            <div class="sub-but"><button type="submit"><span>提交</span></button></div>
                         </div>
+						</form>
                     </li>
                 </ul>
             </div>
@@ -202,4 +232,3 @@
     </script>
     <script>with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://img.baidu.com/hunter/bdys.js?st='+~(new Date()/864e5)];</script>
 
-<div id="message-dialog-1446993394692" style="display:none"><div class="pop-dialog">                <div class="cover"></div>                <div class="add-pop-dialog" style="width:440px">                <div class="pop-dialog-header">                <span class="pop-dialog-title">提示</span>                                </div>                <div class="pop-dialog-con">                <div class="error-info" style="display: none"></div>                <div class="pop-dialog-panel">                            <div class="content"> </div>                </div>                <div class="pop-dialog-but">                <input class="button-0 primary" type="button" value="确定" style="width:160px">                </div>                </div>                </div>                </div></div></body></html>

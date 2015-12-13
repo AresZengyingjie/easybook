@@ -5,6 +5,7 @@ from doctor.models import doctor
 from users.models import users
 from prof.models import prof
 from depart.models import depart
+from books.models import books
 from news.models import news
 from issue.models import issue
 from django.shortcuts import render_to_response
@@ -19,3 +20,4 @@ def help(request,issid,username):
 		return render_to_response('connect.html',{'user':user})
 	if issid =='4':
 		return render_to_response('advice.html',{'user':user})
+		

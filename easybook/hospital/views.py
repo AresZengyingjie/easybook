@@ -6,6 +6,7 @@ from depart.models import depart
 from prof.models import prof
 from users.models import users
 from doctor.models import doctor
+from advice.models import advice
 from django.shortcuts import render_to_response
 # Create your views here.
 	
@@ -24,22 +25,29 @@ def hospitalInfor(request,hosptalid,username):
 		if hos.hospitalid == hosptalid:
 			docList = hos.doctor_set.all()
 			depList = hos.depart_set.all() 
-			return render_to_response('hospitalInfor.html',{'hos':hos,'depList':depList,'profList':profList,'docList':docList,'user':user})
+			adviceList = hos.advice_set.all()
+			return render_to_response('hospitalInfor.html',{'hos':hos,'depList':depList,'profList':profList,'docList':docList,'user':user,'adviceList':adviceList})
 			
 			
 def selectdoc1(request,hosptalid,depid,username):
 	user = users.objects.get(username = username)
 	hos = hospital.objects.get(hospitalid = hosptalid)
+	adviceList = hos.advice_set.all()
 	profList = prof.objects.all()
 	depList = hos.depart_set.all()
 	dep = depart.objects.get(departid = depid)
-	docList1 = hos.doctor_set.all()
-	docList2 = dep.doctor_set.all()
-	docList=[]
-	for doc1 in docList1:
-		if doc1 in docList2:
-			docList = docList.append(doc1)
-	return render_to_response('hospitalInfor.html',{'hos':hos,'depList':depList,'profList':profList,'docList':docList,'user':user})
+	docList = doctor.objects.filter(hos_id = hos.hospitalid, dep_id = dep.departid)	
+	return render_to_response('hospitalInfor.html',{'hos':hos,'depList':depList,'profList':profList,'docList':docList,'user':user,'adviceList':adviceList})
+	
+def selectdoc2(request,hosptalid,profid,username):
+	user = users.objects.get(username = username)
+	hos = hospital.objects.get(hospitalid = hosptalid)
+	adviceList = hos.advice_set.all()
+	profList = prof.objects.all()
+	depList = hos.depart_set.all()
+	prof = prof.objects.get(profid = profid)
+	docList = doctor.objects.filter(prof = prof,hos_id = hos.hospitalid)
+	return render_to_response('hospitalInfor.html',{'hos':hos,'depList':depList,'profList':profList,'docList':docList,'user':user,'adviceList':adviceList})
    
 def selecthosp1(request,hostypeid,username):
 	user = users.objects.get(username = username)

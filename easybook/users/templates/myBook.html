@@ -23,7 +23,7 @@
     <a href=""></a>
       </span>
 
-    <div class="login"><div class="my-doctor"><h3>你好，{{user.username}}<i class="my-space"></i></h3><span class="fa fa-chevron-down logout"><div class="user lg-out" style="z-index:1000;"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/"><li class="logout-li" style="padding-left:20px;">退出登录</li></a></ul></div></span></div><div class="my-doctor" style="z-index:100;"><div class="notice"></div><h3>我的快捷挂号<i class="my-space"></i><span class="fa fa-chevron-down logined"><div class="user lg-in"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/mybook/{{user.username}}" target="_blank"><li class="order">我的预约</li></a><a href="http://yi.baidu.com/pc/my/evaluation#evaluation?sessionid=1447375053850477&amp;pssid=&amp;pvid=1447375053850477&amp;ajaxid=0&amp;tn=NONE&amp;zt=fcpc&amp;zt_ext=&amp;wd=&amp;bidwordid=24082352951&amp;creatid=7738796172&amp;matchtype=2&amp;bidword=%E6%8C%82%E5%8F%B7%E7%BD%91%E4%B8%8A%E9%A2%84%E7%BA%A6" target="_blank"><li class="comment">我的评价</li></a></ul></div></span></h3></div></div>
+    <div class="login"><div class="my-doctor"><h3>你好，{{user.username}}<i class="my-space"></i></h3><span class="fa fa-chevron-down logout"><div class="user lg-out" style="z-index:1000;"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/"><li class="logout-li" style="padding-left:20px;">退出登录</li></a></ul></div></span></div><div class="my-doctor" style="z-index:100;"><div class="notice"></div><h3>我的快捷挂号<i class="my-space"></i><span class="fa fa-chevron-down logined"><div class="user lg-in"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/mybook/{{user.username}}" target="_blank"><li class="order">我的预约</li></a><a href="/myadvice/{{user.username}}"><li class="comment">我的评价</li></a></ul></div></span></h3></div></div>
   </div>
 
 
@@ -32,14 +32,15 @@
 
     <div class="wrap">
         <div class="title">
-            <p><a href="">首页</a> &gt; <a href=""></a> &gt; 我的预约</p>
+            <p><a href="">首页</a> &gt; <a href="/mybook/{{user.username}}"></a> &gt; 我的预约</p>
          
         </div>
         <div class="container">
             <div class="tab-list my-left-colum">
     <ul>
-        <a href=""><li class="personal-center my-appointment active" id="appointment"><i class=" appointment-hover"></i><span>我的预约</span><i class="fa fa-angle-right"></i></li></a>
-        <a href=""><li class="my-evaluation" id="evaluation"><i></i><span>我的评价</span><i class="fa fa-angle-right"></i></li></a>
+        <a href="/mybook/{{user.username}}"><li class="personal-center my-appointment active" id="appointment"><i class=" appointment-hover"></i><span>我的预约</span><i class="fa fa-angle-right"></i></li></a>
+        
+		<a href="/myadvice/{{user.username}}"><li class="my-evaluation" id="evaluation"><i></i><span>我的评价</span><i class="fa fa-angle-right"></i></li></a>
         
         
     </ul>
@@ -74,7 +75,7 @@
                                 <p>订单状态：<span>待修改</span></p>
                             </div>
                             <div class="card-info">
-                                <div class="info-pic"><img src="http://yi.baidu.com/static/pc/201511032020/asset/common/img/doctor.png"></div>
+                                <div class="info-pic"><img src=""></div>
                                 <div class="infos">
                                     <div class="info-title"><div> {{book.doc}} </div><i></i><span>{{book.docprof}}</span></div>
                                     <p class="info-hospittal">{{book.hosAddr}}</p>
@@ -82,12 +83,14 @@
                                 </div>
                                 <div class="info-time"><p>就诊时间：</p>2014-03-12<span>{{book.time}}</span>上午</div>
                                 <div class="info-but revise-but">
-                                    <!--<p class="comment-but">立即修改</p>-->
-                                    <a href="#">查看详情</a>
+                                    
+                                    <a href="#"></a>
+									<a href="/help/4/{{user.username}}/"><p class="comment-but">评价</p></a>
+									<a href="/deletebook/{{book.bookID}}/{{user.username}}/"><p class="comment-but">删除</p></a>
                                 </div>
                             </div>
                         </li>
-                       
+                        
 
                     </ul>
                     {% endfor%}

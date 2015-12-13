@@ -17,9 +17,8 @@ def addbook(request,docid,username):
 	user = users.objects.get(username = username)
 	hos = doc.hos
 	dep = doc.dep
-	user.books_set.create(doc_id = doc.doctorid, hospital = hos.name,depart = dep.departName,docprof= doc.prof,hosAddr = hos.address, time = "sat", patientName =patientname, patientID = idcard,tel = hos.telephone,bookID = '1')
-	bookList = user.books_set.all()
-	return render_to_response('error.html')
+	user.books_set.create(doc_id = doc.doctorid, hospital = hos.name,depart = dep.departName,docprof= doc.prof,hosAddr = hos.address, time = "sat", patientName =patientname, patientID = idcard,tel = phone, bookID = idcard)
+	return render_to_response('book_succeed.html',{'user':user})
 
 def mybook(request,username):
 	user = users.objects.get(username = username)

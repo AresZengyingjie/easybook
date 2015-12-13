@@ -43,10 +43,7 @@
       </div>
         </div>
     <div class="keyword">
-      <form method="get" id="med_form">
-              <input data-value="" type="text" name="key" autocomplete="off" placeholder="请输入医院/科室/疾病/症状/医生姓名" class="gray" id="search-tips-input" value="">
-                  <button type="button" class="btn-doctor" id="querySearch">搜&nbsp;索</button>
-      </form>
+      <form action="/search_result/{{user.username}}/" method="get" id="med_form"><input type="text" name="key" autocomplete="off" placeholder="请输入医院/科室/疾病/症状/医生姓名" class="gray" id="search-tips-input" value="请输入医院/科室/疾病/症状/医生姓名"><button type="submit" style="width :96px; height:36px;border:0;font-size:17px;background-color: #2896f3;cursor: pointer;color: #fff;">搜&nbsp;索</button></form>
     </div>
     
   </div>
