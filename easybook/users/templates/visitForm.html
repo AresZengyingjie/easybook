@@ -19,7 +19,7 @@
 
 
     </header>
-	<div class="wrap"><div class="title"><p><a href="index.html">首页</a> &gt; <a href="doctorInfor.html">医生详情页</a> &gt;填写预约信息</p></div><div class="container"><p class="doctor-title">已选择的医生</p><div class="doctor-info"><div class="info-pic"><img src="/static/e824b899a9014c08c76f72be0c7b02087bf4f451.jpg"></div><div class="infos"><div class="info-title"><div>{{doc.docname}}</div></div><p class="info-hospittal"><span>{{doc.hosp}}</span>{{doc.depa}}</p><p class="info-pos"><span>医院地址：</span>{{hos.address}}</p></div><div class="info-time"><span>就诊时间：</span>2015-11-12(星期四)上午</div></div><div class="write-list"><p class="doctor-title">请填写预约信息<span>(输入的预约信息，我们将为你保密)</span><span class="right-info"><span>*</span>为必填项</span></p><table><tbody>
+	<div class="wrap"><div class="title"><p><a href="/index_loginagain/{{user.username}}/">首页</a> &gt; <a href="/doctorInfor/{{doc.doctorid}}/{{user.username}}">医生详情页</a> &gt;填写预约信息</p></div><div class="container"><p class="doctor-title">已选择的医生</p><div class="doctor-info"><div class="info-pic"><img src="/static/e824b899a9014c08c76f72be0c7b02087bf4f451.jpg"></div><div class="infos"><div class="info-title"><div>{{doc.docname}}</div></div><p class="info-hospittal"><span>{{doc.hosp}}</span>{{doc.depa}}</p><p class="info-pos"><span>医院地址：</span>{{hos.address}}</p></div><div class="info-time"><span>就诊时间：</span>2015-11-12(星期四)上午</div></div><div class="write-list"><p class="doctor-title">请填写预约信息<span>(输入的预约信息，我们将为你保密)</span><span class="right-info"><span>*</span>为必填项</span></p><table><tbody>
 	
 	<form action="/addbook/{{doc.doctorid}}/{{user.username}}/" method="get">
 	<tr><td class="label">就诊人</td><td class="essential-mark"><span class="star-red">*</span></td><td><div class="widget-input" id="widget-input-name"><input type="text" name="patient-name"><span class="right" style="display:none;"><i class="instant-state fa fa-check-circle"></i></span><span class="wrong" style="display:none;"><i class="instant-state fa fa-times-circle"></i><i id="name-wrong-info"></i></span></div></td></tr>
@@ -34,9 +34,9 @@
 	</tbody></table></div></div></div><footer class="footer clear path" data-src="http://yi.baidu.com/static/pc/201511032020/asset" data-href="" data-api="http://yi.baidu.com" data-passport="https://passport.baidu.com">
     <div class="footer-container">
         <dd>
-            <a href="" target="_blank">帮助</a>
-            <a href="" target="_blank">联系客服</a>
-            <a href="" target="_blank">意见反馈</a>
+            <a href="/helpIssue/{{user.username}}/" target="_blank">帮助</a>
+            <a href="/help/3/{{user.username}}/" target="_blank">联系客服</a>
+            <a href="/help/4/{{user.username}}/" target="_blank">意见反馈</a>
         </dd>
         
     </div>

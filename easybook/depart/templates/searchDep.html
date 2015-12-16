@@ -11,7 +11,7 @@
   <div class="log_top_box">
     <div class="top-box" id="header" data-cover="null" data-login="" data-listtype="null" data-paramdata="{&quot;sessionid&quot;:&quot;1447050841768814&quot;,&quot;pssid&quot;:&quot;&quot;,&quot;pvid&quot;:1447050843126468,&quot;ajaxid&quot;:0,&quot;tn&quot;:&quot;NONE&quot;,&quot;zt&quot;:&quot;fcpc&quot;,&quot;zt_ext&quot;:&quot;&quot;,&quot;wd&quot;:&quot;&quot;,&quot;bidwordid&quot;:&quot;24082352951&quot;,&quot;creatid&quot;:&quot;7738796172&quot;,&quot;matchtype&quot;:&quot;2&quot;,&quot;bidword&quot;:&quot;\u6302\u53f7\u7f51\u4e0a\u9884\u7ea6&quot;}">
       <span class="top-home">
-        | <a target="_blank" href=""><img class="top-icon-img" src="/static/icon-home.png"> 首页 </a>
+        | <a target="_blank" href="/index_loginagain/{{user.username}}/"><img class="top-icon-img" src="/static/icon-home.png"> 首页 </a>
       </span>
              <div class="login"><div class="my-doctor"><h3>你好，{{user.username}}<i class="my-space"></i></h3><span class="fa fa-chevron-down logout"><div class="user lg-out" style="z-index:1000;"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/"><li class="logout-li" style="padding-left:20px;">退出登录</li></a></ul></div></span></div><div class="my-doctor" style="z-index:100;"><div class="notice"></div><h3>我的快捷挂号<i class="my-space"></i><span class="fa fa-chevron-down logined"><div class="user lg-in"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/mybook/{{user.username}}" target="_blank"><li class="order">我的预约</li></a><a href="http://yi.baidu.com/pc/my/evaluation#evaluation?sessionid=1447375053850477&amp;pssid=&amp;pvid=1447375053850477&amp;ajaxid=0&amp;tn=NONE&amp;zt=fcpc&amp;zt_ext=&amp;wd=&amp;bidwordid=24082352951&amp;creatid=7738796172&amp;matchtype=2&amp;bidword=%E6%8C%82%E5%8F%B7%E7%BD%91%E4%B8%8A%E9%A2%84%E7%BA%A6" target="_blank"><li class="comment">我的评价</li></a></ul></div></span></h3></div></div>
           </div>
@@ -75,10 +75,10 @@
 			<h1 class="title">帮助中心</h1>
 		<div class="ct">
 			
-			<p class="depics"><b class="sq">1.</b><a target="_blank" href="">如何选择医生？</a></p>
-			<p class="depics"><b class="sq">2.</b><a target="_blank" href="">如何预约医生？</a></p>
-			<p class="depics"><b class="sq">3.</b><a target="_blank" href="">如何评价医生？</a></p>
-			<a class="more" target="_blank" href="">查看更多&gt;</a>
+			<p class="depics"><b class="sq">1.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何选择医生？</a></p>
+			<p class="depics"><b class="sq">2.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何预约医生？</a></p>
+			<p class="depics"><b class="sq">3.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何评价医生？</a></p>
+			<a class="more" target="_blank" href="/helpIssue/{{user.username}}">查看更多&gt;</a>
 		</div>
 	</article>
 	
@@ -95,9 +95,9 @@
 
     <div class="footer-info-url">
       <dd class="fo-link">
-        <a href="" target="_blank"><span>帮助</span>|</a>
-        <a href="" target="_blank"><span> 意见协议</span>|</a>
-        <a href="" target="_blank"><span> 意见反馈<span></span></span></a>
+        <a href="/helpIssue/{{user.username}}" target="_blank"><span>帮助</span>|</a>
+        <a href="/help/2/{{user.username}}/" target="_blank"><span> 意见协议</span>|</a>
+        <a href="/help/4/{{user.username}}/" target="_blank"><span> 意见反馈<span></span></span></a>
       </dd>
       
   </div>
