@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="keyword" content="医生推荐,医生简介,医生科室,医生照片,医院挂号,医院地址,医院电话,医院官网,三甲医院"><meta name="description" content="感冒，症状：
+喷嚏，鼻塞，流清水样鼻涕,
+急起高热，全身疼痛 "><title>diseaseInformation</title>
+
+<!--线上设置 if(true/false)用来启用/禁用 -->
+        
+
+ <!--[if IE]>
+    <script src="http://yi.baidu.com/static/pc/201511032020/asset/common/js/html5.js"></script>
+ <![endif]--><link rel="stylesheet" href="/static/disease.css"><script charset="utf-8" src="/static/v.js"></script><script data-require-id="search/diseases/disease" src="/static/disease.js" async=""></script><script data-require-id="common/js/config" src="/static/config.js" async=""></script><script src="/static/bdys.js"></script><script data-require-id="search/search" src="/static/search.js" async=""></script><script data-require-id="common/js/ajax" src="/static/ajax.js" async=""></script><script data-require-id="common/js/pagination" src="/static/pagination.js" async=""></script></head><body><header id="fastTop" class="header" style="height: 100px;">
+  <div class="log_top_box">
+    <div class="top-box" id="header" data-cover="true" data-login="" data-listtype="null" data-paramdata="{&quot;sessionid&quot;:&quot;1447039043578852&quot;,&quot;pssid&quot;:&quot;&quot;,&quot;pvid&quot;:1447053696774648,&quot;ajaxid&quot;:0,&quot;tn&quot;:&quot;NONE&quot;,&quot;zt&quot;:&quot;fcpc&quot;,&quot;zt_ext&quot;:&quot;&quot;,&quot;wd&quot;:&quot;&quot;,&quot;bidwordid&quot;:&quot;24082352951&quot;,&quot;creatid&quot;:&quot;7738796172&quot;,&quot;matchtype&quot;:&quot;2&quot;,&quot;bidword&quot;:&quot;\u6302\u53f7\u7f51\u4e0a\u9884\u7ea6&quot;}">
+      <span class="top-home">
+        | <a target="_blank" href="/index_loginagain/{{user.username}}/"><img class="top-icon-img" src="/static/icon-home.png"> 首页 </a>
+      </span>
+              <div class="login"><div class="my-doctor"><h3>你好，{{user.username}}<i class="my-space"></i></h3><span class="fa fa-chevron-down logout"><div class="user lg-out" style="z-index:1000;"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/"><li class="logout-li" style="padding-left:20px;">退出登录</li></a></ul></div></span></div><div class="my-doctor" style="z-index:100;"><div class="notice"></div><h3>我的快捷挂号<i class="my-space"></i><span class="fa fa-chevron-down logined"><div class="user lg-in"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/mybook/{{user.username}}" target="_blank"><li class="order">我的预约</li></a><a href="http://yi.baidu.com/pc/my/evaluation#evaluation?sessionid=1447375053850477&amp;pssid=&amp;pvid=1447375053850477&amp;ajaxid=0&amp;tn=NONE&amp;zt=fcpc&amp;zt_ext=&amp;wd=&amp;bidwordid=24082352951&amp;creatid=7738796172&amp;matchtype=2&amp;bidword=%E6%8C%82%E5%8F%B7%E7%BD%91%E4%B8%8A%E9%A2%84%E7%BA%A6" target="_blank"><li class="comment">我的评价</li></a></ul></div></span></h3></div></div>
+          </div>
+  </div>
+  <div class="search_box">
+    <span class="border"></span>
+    <div class="area">
+          <div class="area-border" style="display: block;">
+        <span>
+          <!--<i class="fa fa-map-marker" style="text-indent:10px"></i>-->
+          <span id="current-area" title="哈尔滨" data-provid="15" data-provtag="0">哈尔滨</span>
+        </span>
+        <span id="area_change">[切换地址]</span>
+        <div class="select-city" style="display:none;">
+          <span class="top-border"></span>
+          <div class="hot-city-list">
+            <em>热门</em>
+                            <a href="" target="_blank">福州</a>
+                          <a href="1" target="_blank">武汉</a>
+                          <a href="" target="_blank">深圳</a>
+                          <a href="" target="_blank">南昌</a>
+                          <a href="" target="_blank">西安</a>
+                          <a href="" target="_blank">北京</a>
+                          <a href="" target="_blank">上海</a>
+                      </div>
+         
+        </div>
+      </div>
+        </div>
+    <div class="keyword">
+      <form action="/search_result/{{user.username}}/" method="get" id="med_form"><input type="text" name="key" autocomplete="off" placeholder="请输入医院/科室/疾病/症状/医生姓名" class="gray" id="search-tips-input" value="请输入医院/科室/疾病/症状/医生姓名"><button type="submit" style="width :96px; height:36px;border:0;font-size:17px;background-color: #2896f3;cursor: pointer;color: #fff;">搜&nbsp;索</button></form>
+    </div>
+  </div>
+</header><div class="wrap"><div class="container" style="width:1004px;"><div class="title index-title" style="margin:0px"><p><a href="/index_loginagain/{{user.username}}/">首页 </a>&gt; 疾病详情页</p></div><article class="depart-title"><div class="disease-title"><img src="/static/{{dise.disename}}.jpg"><div class="disease-info"><h2 data-id="8462" id="disease_name" data-value="感冒">{{dise.disename}}<span>(别名：{{dise.disenamel}})</span></h2><p>疾病症状：<span> 
+{{dise.diseSym}}</span></p><p>就诊科室： <span class="disease-depart" data-depart1="1" data-depart2="5"><a href="" target="_blank">{{dise.godepart}}</a></span></p><p>传播途径： <span>{{dise.spread}}</span></p><p>常见部位： <span>{{dise.position}}</span></p><p>高发人群： <span>{{dise.highrisk}}</span></p></div></div></article><aside id="departTab" class="department-tabs"><div class="main"><div class="content" style="display: block; margin-top: 10px;"><article class="broad"><div class="common-disease "><h4>疾病详情</h4><div class="disease-detail"><p><span>疾病简介：</span><span class="info">{{dise.intro}}　　</span></p><p><span>疾病症状：</span><span class="info">
+{{dise.diseSym}}</span></p><label id="more-show">展开全部</label><div class="more-info" style="display:none;"><p><span>治疗方法：</span><span class="info">{{dise.method}}</span></p><p><span>就诊科室：</span><span class="info"><a href="" style="color:#54a7fa;cursor:pointer;text-decoration:none" target="_blank">{{dise.godepart}}</a></span></p><p><span>常见部位：</span><span class="info">{{dise.position}}</span></p><p><span>高发人群：</span><span class="info">{{dise.highrisk}}</span></p><label id="more-hide">收起</label></div></div></div>
+
+<div class="relative-doctor" id="excel-doctor-div" style=""><h4>相关医生<span class="more-hos" data-type="doctor">查看全部<img src="/static/arrow_normal.png"></span></h4><div class="doctor-content">
+<div id="pre-arrow" class="pre-arrow"><img data-gray="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/pre_disable.png" data-srchover="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/pre_hover.png" data-src="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/pre_normal.png" src="/static/pre_disable.png"></div>
+
+<div class="doctail-detail"><ul id="dictor-list-ul">
+{% for doc in docList %}
+{% if doc.doctorid|divisibleby:"3" %} 
+<li><a href="/doctorInfor/{{doc.doctorid}}/{{user.username}}" target="_blank"><img src="/static/{{doc.doctorid}}.jpg"></a><div class="doctor-opacity"></div><p><a target="_blank" href="/doctorInfor/{{doc.doctorid}}/{{user.username}}" alt="undefined" title="undefined"><span>{{doc.docname}}</span></a>&nbsp;<span class="doctor-level">{{doc.prof|truncatechars:4}}</span></p><p>{{doc.depa}}</p><p title="">{{doc.hosp|truncatechars:9}}</p><p class="skill">擅长:&nbsp;{{doc.goodat|truncatechars:20}}</p><p class="btn-appoint"><a target="_blank" href="/doctorInfor/{{doc.doctorid}}/{{user.username}}"><span>一键预约</span></a></p></li>{% endif %}
+{% endfor%}
+</ul></div><div id="next-arrow" class="next-arrow"><img data-gray="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/arrow_disable.png" data-srchover="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/arrow_hover.png" data-src="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/arrow_normal.png" src="/static/arrow_disable.png"></div></div></div></article></div><div class="content" style="display: none; margin-top: 10px;"><aside class="right-sidebar">
+	<article class="broad" style="border-bottom:none; margin-bottom:0px;">
+		<h1 class="title">挂号规则</h1>
+		<div class="ct">
+			<p class="depics"><b class="sq">1.</b>每日8:00左右更新后一天号源</p>
+			<p class="depics"><b class="sq">2.</b>可预约当天和未来2周号源</p>
+			<p class="depics"><b class="sq">3.</b>请参考短信提示，到医院就诊</p>
+			<p class="depics"><b class="sq">4.</b>就诊前一天16:00前致电客服010-59928658，可取消预约单。</p>
+		</div>
+	</article>
+		<article class="broad" style="margin-bottom:0px;">
+			<h1 class="title">帮助中心</h1>
+		<div class="ct">
+			<p class="depics"><b class="sq">1.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何选择医生？</a></p>
+			<p class="depics"><b class="sq">2.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何预约医生？</a></p>
+			<p class="depics"><b class="sq">3.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何评价医生？</a></p>
+			<a class="more" target="_blank" href="/helpIssue/{{user.username}}">查看更多&gt;</a>
+		</div>
+	</article>
+
+	
+</aside></div><div class="content" style="display: none; margin-top: 10px;"><div class="content-left"><div class="depart-select" data-type="doctor"><p>为您找到治疗"感冒"的<label class="curdotor"><i id="doc_total"></i></label>名相关医生</p><div class="select-detail mains-doctor" data-type="3"><h4>医生职称:</h4><ul class="dropmenus" id="medtitle-ul"><li data-value="0" class="select-cur">全部</li><li data-value="4">主任医师</li><li data-value="3">副主任医师</li><li data-value="2">主治医师</li><li data-value="1">普通医师</li><li data-value="0"></li></ul></div></div><div class="doctor-info-box"><div style="height:40px"><div class="doctor-visit-time"><div class="doctor-order-time"><span>出诊时间</span><span class="fa fa-chevron-down  icon-orders-time" id="icon-order-time"><div class="visit-hover "><div class="hover-icon "><span>出诊时间</span><span class="fa fa-chevron-up  up-orders-time"></span></div><div class="doctor-visit-ul" id="select-visit-time"><ul class=""><li class="date-classify select-cur" data-value="all">全部时间</li><li class="date-classify" data-value="workday">工作日</li><li class="date-classify" data-value="weekend">休息日</li></ul><ul class="date-detail"><li class="date-group">本周</li><li class="date-unit" data-value="2015-11-09"><label class="date-txt">今天</label><br><label class="date-val">11-09</label></li><li class="date-unit" data-value="2015-11-10"><label class="date-txt">明天</label><br><label class="date-val">11-10</label></li><li class="date-unit" data-value="2015-11-11"><label class="date-txt">周三</label><br><label class="date-val">11-11</label></li><li class="date-unit" data-value="2015-11-12"><label class="date-txt">周四</label><br><label class="date-val">11-12</label></li><li class="date-unit" data-value="2015-11-13"><label class="date-txt">周五</label><br><label class="date-val">11-13</label></li><li class="date-unit" data-value="2015-11-14"><label class="date-txt">周六</label><br><label class="date-val">11-14</label></li><li class="date-unit" data-value="2015-11-15"><label class="date-txt">周日</label><br><label class="date-val">11-15</label></li></ul><ul class=""><li class="date-group">未来一周</li><li class="date-unit" data-value="2015-11-16"><label class="date-txt">周一</label><br><label class="date-val">11-16</label></li><li class="date-unit" data-value="2015-11-17"><label class="date-txt">周二</label><br><label class="date-val">11-17</label></li><li class="date-unit" data-value="2015-11-18"><label class="date-txt">周三</label><br><label class="date-val">11-18</label></li><li class="date-unit" data-value="2015-11-19"><label class="date-txt">周四</label><br><label class="date-val">11-19</label></li><li class="date-unit" data-value="2015-11-20"><label class="date-txt">周五</label><br><label class="date-val">11-20</label></li><li class="date-unit" data-value="2015-11-21"><label class="date-txt">周六</label><br><label class="date-val">11-21</label></li><li class="date-unit" data-value="2015-11-22"><label class="date-txt">周日</label><br><label class="date-val">11-22</label></li></ul><ul><li class="date-group">未来两周</li><li class="date-unit" data-value="2015-11-23"><label class="date-txt">周一</label><br><label class="date-val">11-23</label></li><li class="date-unit-empty"></li><li class="date-unit-empty"></li><li class="date-unit-empty"></li><li class="date-unit-empty"></li><li class="date-unit-empty"></li><li class="date-unit-empty"></li></ul></div></div></span></div></div></div><ul id="doctor-info-list" class="doctor-info-list" style="display:block;"></ul><div class="pagination-x pull-right"><span class="pagers doctor-pagers"></span></div></div><div class="result-empty doctor-empty" style="display:none;"><img src="/static/no-doctor.png" class="resultimg"><div class="result-text">抱歉！没有符合条件的医生</div></div></div><aside class="right-sidebar">
+	<article class="broad" style="border-bottom:none; margin-bottom:0px;">
+		<h1 class="title">挂号规则</h1>
+		<div class="ct">
+			<p class="depics"><b class="sq">1.</b>每日8:00左右更新后一天号源</p>
+			<p class="depics"><b class="sq">2.</b>可预约当天和未来2周号源</p>
+			<p class="depics"><b class="sq">3.</b>请参考短信提示，到医院就诊</p>
+			<p class="depics"><b class="sq">4.</b>就诊前一天16:00前致电客服010-59928658，可取消预约单。</p>
+		</div>
+	</article>
+		<article class="broad" style="margin-bottom:0px;">
+			<h1 class="title">帮助中心</h1>
+		<div class="ct">
+			<p class="depics"><b class="sq">1.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何选择医生？</a></p>
+			<p class="depics"><b class="sq">2.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何预约医生？</a></p>
+			<p class="depics"><b class="sq">3.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何评价医生？</a></p>
+			<a class="more" target="_blank" href="/helpIssue/{{user.username}}">查看更多&gt;</a>
+		</div>
+	</article>
+	
+</aside></div></div></aside><div id="feedback" class="back" style="display: none;"><a href="script:void(0)" class="back-top" id="back-top"><img data-srchover="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/top_hover.png" data-src="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/top_normal.png" src="/static/top_normal.png"></a><a href="" target="_blank" class="feedback" id="back"><img data-srchover="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/feedback_hover.png" data-src="http://yi.baidu.com/static/pc/201511032020/asset/common/img/home/feedback_normal.png" src="/static/feedback_normal.png"></a></div></div></div><footer id="footer-three" class="footer-box footer-three clear path" data-src="" data-href="" data-api="" data-passport="">
+
+  <div class="footer-con">
+
+    <div class="footer-info-url">
+      <dd class="fo-link">
+        <a href="/helpIssue/{{user.username}}" target="_blank"><span>帮助</span>|</a>
+        <a href="/help/4/{{user.username}}/" target="_blank"><span> 意见反馈<span></span></span></a>
+      </dd>
+  </div>
+
+</div></footer>
+<script src="/static/hm.js"></script><script src="/static/esl.js"></script><script src="/static/jquery-1.11.2.min.js"></script><script src="/static/2.0.1.2.js"></script><script src="/static/uni_login_wrapper.js"></script><script src="/static/passport.js"></script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?2129ef9891a442299befc9c664fc73e3";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script><script>require.config({'baseUrl': 'http://yi.baidu.com/static/pc/201511032020/asset','paths': {},'packages': [{}]});$("#login").off().on('click', function(event){showLoginPop('',event);});function showLoginPop(func,event){if(event != undefined){baidu.event.preventDefault(event || window.event);}initLogin(func);var isShow = localStorage.getItem('isPopForm');$('#passport-login-pop').remove();if (isShow){localStorage.removeItem('isPopForm');}localStorage.setItem('isPopLogin', true);}</script><!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="http://yi.baidu.com/static/pc/201511032020/asset/common/js/selectivizr-min.js"></script><noscript><link rel="stylesheet" href="[fallback css]" /></noscript><![endif]--><script src="/static/jquery-1.11.2.min.js"></script><script src="/static/passport.js"></script><script>$("#more-hide").click(function(){$(".more-info").hide();$("#more-show").show();});$("#more-show").click(function(){$("#more-show").hide();$(".more-info").show();});</script><script>require(['search/diseases/disease','common/js/config'], function(disease,config) {disease["scroll"]=350;disease.init();config.init();config.keyWord({"sessionid":"1447039043578852","pssid":"","pvid":1447053696774648,"ajaxid":0,"tn":"NONE","zt":"fcpc","zt_ext":"","wd":"","bidwordid":"24082352951","creatid":"7738796172","matchtype":"2","bidword":"\u6302\u53f7\u7f51\u4e0a\u9884\u7ea6"});});</script><script>var Hunter = window.Hunter || {};Hunter.userConfig = Hunter.userConfig || [];Hunter.userConfig.push({hid: 73390});with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://img.baidu.com/hunter/bdys.js?st='+~(new Date()/864e5)];</script></body></html>

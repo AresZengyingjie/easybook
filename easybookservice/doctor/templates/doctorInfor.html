@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="keyword" content="医生推荐,医生简介,医生科室,医生照片,医院挂号,医院地址,医院电话,医院官网,三甲医院"><meta name="description" content=""><title>doctorInformation</title>
+
+<!--线上设置 if(true/false)用来启用/禁用 -->
+        
+
+ <!--[if IE]>
+    <script src="http://yi.baidu.com/static/pc/201511032020/asset/common/js/html5.js"></script>
+ <![endif]--><link rel="stylesheet" href="/static/detail.css"><script charset="utf-8" src="/static/v.js"></script><script data-require-id="doctor/detail" src="/static/detail.js" async=""></script><script data-require-id="common/js/config" src="/static/config.js" async=""></script><script src="/static/bdys.js"></script><script data-require-id="common/js/ajax" src="/static/ajax.js" async=""></script><script data-require-id="common/js/pagination" src="/static/pagination.js" async=""></script><script data-require-id="common/js/mustache.min" src="/static/mustache.min.js" async=""></script><script data-require-id="common/js/moudle" src="/static/moudle.js" async=""></script></head><body><header class="header"><header id="fastTop" class="header" style="height: 100px;">
+  <div class="log_top_box">
+    <div class="login"><div class="my-doctor"><h3>你好，{{user.username}}<i class="my-space"></i></h3><span class="fa fa-chevron-down logout"><div class="user lg-out" style="z-index:1000;"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/"><li class="logout-li" style="padding-left:20px;">退出登录</li></a></ul></div></span></div><div class="my-doctor" style="z-index:100;"><div class="notice"></div><h3>我的快捷挂号<i class="my-space"></i><span class="fa fa-chevron-down logined"><div class="user lg-in"><dt><i class="fa fa-chevron-down"></i></dt><ul><a href="/mybook/{{user.username}}" target="_blank"><li class="order">我的预约</li></a><a href="/myadvice/{{user.username}}" target="_blank"><li class="comment">我的评价</li></a></ul></div></span></h3></div></div>
+  </div>
+  <div class="search_box">
+    <span class="logo">
+      <a href=""><img src="/static/logo.png" alt="百度医生"></a>
+    </span>
+    <span class="border"></span>
+    <div class="area">
+        </div>
+    <div class="keyword">
+      <form action="/search_result/{{user.username}}/" method="get" id="med_form"><input type="text" name="key" autocomplete="off" placeholder="请输入医院/科室/疾病/症状/医生姓名" class="gray" id="search-tips-input" value="请输入医院/科室/疾病/症状/医生姓名"><button type="submit" style="width :96px; height:36px;border:0;font-size:17px;background-color: #2896f3;cursor: pointer;color: #fff;">搜&nbsp;索</button></form>
+    </div>
+  </div>
+</header></header><div class="wrap"><div class="container"><div class="title"><p><a href="/index_loginagain/{{user.username}}/">首页 &gt;</a> 医生详情页</p></div><div class="doctor-main"><div class="doctor-info"><div class="doctor-card clearfix"><div class="info-pic"><img src="/static/{{doc.doctorid}}.jpg"></div><div class="infos"><div class="info-title"><div>{{doc.docname}}</div><span>{{doc.prof}}</span><span></span><div class="rate">&nbsp;&nbsp;&nbsp;<!-- <span class="evaluation-total">（&nbsp;评价）</span> --><span>预约成功率：</span><i class="num">99%</i><span></span></div></div><p class="info-hospital"><span>{{doc.hos}}</span>{{doc.depa}}<!-- <span class="doc-td-xg">医生态度<em>9.8</em><i></i>治疗效果<em>9.2</em></span> --></p><table cellspacing="0" cellpadding="0"><tbody><tr><td valign="top">擅长诊治：</td><td>擅长：{{doc.goodat}}</td></tr><tr><td valign="top">医院地址：</td><td class="info-pos">{{hos.address}}<a href="" class="marker" target="_blank"><i class="fa fa-map-marker"></i></a></td></tr></tbody></table></div></div><article class="select-card">
+<br>
+
+<h3 style="text-align:left; font-size:15px;"><strong>该医生的空闲时间为：</strong></h><p style="text-align:center;font-size:20px;">{{doc.time}}</p><p style="text-align:center;font-size:15px;">请尽量在医生空闲时间进行预约</p>
+<a href="/visitForm/{{doc.doctorid}}/{{user.username}}/"><p style="text-align:center;font-size:20px;color:blue;"><strong>挂号预约</strong></p></a><br>
+
+
+</article><div class="exprience"><h4>执业经历</h4><p><span id="experienceShort" class="exprience-text" style="display:none;"> {{doc.docname}} {{doc.depa}} {{doc.exp}}</span><span id="experience" class="exprience-text"> {{doc.docname}} {{doc.depa}} {{doc.exp}}</span><span class="view-switch" style="display:none;"><span id="arrow-down">展开全部<i class="fa fa-angle-down"></i></span><span id="arrow-up" class="hidden"><i class="fa fa-angle-up"></i>收起</span></span></p></div><!--comments >>--><div class="comment"><div class="comment-header"><div class="comment-rate"></div></div><ul class="comment-list" id="commentList"></ul><div class="pagination-x pull-right"><span class="pagers"></span></div></div></div></div></div><aside class="right-sidebar">
+	<article class="broad" style="border-bottom:none; margin-bottom:0px;">
+		<h1 class="title">挂号规则</h1>
+		<div class="ct">
+			<p class="depics"><b class="sq">1.</b>每日8:00左右更新后一天号源</p>
+			<p class="depics"><b class="sq">2.</b>可预约当天和未来2周号源</p>
+			<p class="depics"><b class="sq">3.</b>请参考短信提示，到医院就诊</p>
+			<p class="depics"><b class="sq">4.</b>就诊前一天16:00前致电客服010-59928658，可取消预约单。</p>
+		</div>
+	</article>
+		<article class="broad" style="margin-bottom:0px;">
+			<h1 class="title">帮助中心</h1>
+		<div class="ct">
+			<p class="depics"><b class="sq">1.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何选择医生？</a></p>
+			<p class="depics"><b class="sq">2.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何预约医生？</a></p>
+			<p class="depics"><b class="sq">3.</b><a target="_blank" href="/helpIssue/{{user.username}}">如何评价医生？</a></p>
+			<a class="more" target="_blank" href="/helpIssue/{{user.username}}">查看更多&gt;</a>
+		</div>
+	</article>
+
+
+</aside></div><footer class="footer-box clear path" data-src="http://yi.baidu.com/static/pc/201511032020/asset" data-href="" data-api="http://yi.baidu.com" data-passport="https://passport.baidu.com">
+
+  <div class="footer-container-box">
+    <div class="footer-container">
+
+       <!-- <dd  class="footer-container-footer">京IC证030173号</dd> -->
+    </div>
+  </div>
+</footer>
+
+
+<script src="/static/esl.js"></script>
+<script src="/static/jquery-1.11.2.min.js"></script>
+<script src="/static/2.0.1.2.js"></script>
+<script src="/static/uni_login_wrapper.js"></script>
+<script src="/static/passport.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?2129ef9891a442299befc9c664fc73e3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<script>
+    require.config({
+        'baseUrl': 'http://yi.baidu.com/static/pc/201511032020/asset',
+        'paths': {},
+        'packages': [{}]
+    });
+
+   $("#login").off().on('click', function(event){
+        /*modify by yuhaiqiang
+        baidu.event.preventDefault(event || window.event);
+		var isShow = localStorage.getItem('isPopForm');
+		console.log(isShow);
+		if (isShow)
+		{
+		    $('#passport-login-pop').remove();
+			localStorage.removeItem('isPopForm');
+		}
+        instance.show();//显示浮层
+        */
+        showLoginPop('',event);
+    });
+    function showLoginPop(func,event){
+        if(event != undefined){
+            baidu.event.preventDefault(event || window.event);
+        }
+        initLogin(func);
+		var isShow = localStorage.getItem('isPopForm');
+		console.log(isShow);
+		$('#passport-login-pop').remove();
+		if (isShow)
+		{
+		    //$('#passport-login-pop').remove();
+			localStorage.removeItem('isPopForm');
+		}
+        localStorage.setItem('isPopLogin', true);
+        //instance.show();//显示浮层
+    }
+</script>
+
+<script>
+   /* $('.logout').on('mouseover',function () {//我的百度医生
+            $(".lg-out").show();
+     });
+
+    $('.logined').on('mouseover',function () {//我的百度医生
+            $(".lg-in").show();
+    });
+    $('.lg-in').on('click','li',function () {//点击隐藏父节点
+           $(this).parent().parent().hide();
+    });
+
+//   $('.name').on('click',function () {//退出登陆
+  //          $(".logout").show();
+    //});
+
+
+
+    var loginedTimer=null;
+    $(".logined").mouseover(function(){
+        clearTimeout(loginedTimer);
+        $(".lg-in").show();
+    })
+    $(".logined").mouseout(function(){
+        loginedTimer=setTimeout(function(){
+            $(".lg-in").hide();
+        }, 500);
+    });
+
+
+    var logoutTimer=null;
+    $(".logout").mouseover(function(){
+        clearTimeout(logoutTimer);
+        $(".lg-out").show();
+    })
+    $(".logout").mouseout(function(){
+        logoutTimer=setTimeout(function(){
+            $(".lg-out").hide();
+        }, 500);
+    });*/
+</script>
+
+<!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="http://yi.baidu.com/static/pc/201511032020/asset/common/js/selectivizr-min.js"></script><noscript><link rel="stylesheet" href="[fallback css]" /></noscript><![endif]--><script src="/static/jquery-1.11.2.min.js"></script><script src="/static/passport.js"></script><script>require(['doctor/detail','common/js/config'], function(detail,config) {$("#arrow-down").on('click', function() {$("#experienceShort").hide();$("#experience").show();$(this).hide().next().show();});$("#arrow-up").on('click', function() {$("#experienceShort").show();$("#experience").hide();$(this).hide().prev().show();});detail["doctorId"] = "70114";detail["term"] = "pcpatient";detail["hospital"] = "黑龙江省医院";detail["department"] = "综合内科";var scheduleCurrentIndex = "1";detail['scheduleCurrentIndex'] = parseInt(scheduleCurrentIndex!=""?scheduleCurrentIndex:1);detail["scheduleDayCount"] = "21";detail.init();config.init();config.keyWord({"sessionid":"1446989195495577","pssid":"","pvid":1447048744840116,"ajaxid":0,"tn":"NONE","zt":"fcpc","zt_ext":"","wd":"","bidwordid":"24082352951","creatid":"7738796172","matchtype":"2","bidword":"\u6302\u53f7\u7f51\u4e0a\u9884\u7ea6"});detail.animation(0,"http://yi.baidu.com/static/pc/201511032020/asset")});</script><script>var Hunter = window.Hunter || {};Hunter.userConfig = Hunter.userConfig || [];Hunter.userConfig.push({hid: 71916});</script><script>with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://img.baidu.com/hunter/bdys.js?st='+~(new Date()/864e5)];</script></body></html>

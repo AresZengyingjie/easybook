@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>register</title>
+<link rel="stylesheet" href="/static/style.css">
+<body>
+
+<div class="register-container">
+	<h1>快捷挂号系统</h1>
+	
+	<div class="connect">
+		<p>请输入以下信息：</p>
+	</div>
+	
+	<form action="/addUser/" method="get" name="registerForm">
+		<div>
+			<input type="text" name="username" class="username" placeholder="您的用户名" autocomplete="off"/>
+		</div>
+		<div>
+			<input type="password" name="password" class="password" placeholder="输入密码" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<div>
+			<input type="password" name="confirm_password" class="confirm_password" placeholder="再次输入密码" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<div>
+			<input type="email" name="email" class="email" placeholder="输入邮箱地址" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<button  type="submit">注 册</button>
+	</form>
+	<a href="/login/">
+		<button type="button" class="register-tis">已经有账号？去登陆</button>
+	</a>
+
+</div>
+
+</body>
+<script src="/static/jquery.min.js"></script>
+<script src="/static/common.js"></script>
+<!--表单验证-->
+<script src="/static/jquery.validate.min.js?var1.14.0"></script>
+</html>
