@@ -11,7 +11,7 @@ class users(models.Model):
     email          = models.CharField('email',max_length=30)
     
     def __unicode__(self):
-        return str(self.username)
+        return self.username
 	
 class userIssue(admin.ModelAdmin):
 	list_display = ('username','password','email')

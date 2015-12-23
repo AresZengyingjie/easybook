@@ -12,7 +12,7 @@ class news(models.Model):
 	subtitle      = models.CharField('subtitle',max_length=50)
 	article       = models.TextField ('article',blank=True,max_length=2000)
 	def __unicode__(self):
-		return str(self.title)
+		return self.title
   
 class newsIssue(admin.ModelAdmin):
 	list_display = ('newsid','title','subtitle','article')

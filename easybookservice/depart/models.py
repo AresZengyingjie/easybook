@@ -11,7 +11,7 @@ class depart(models.Model):
 	departid  = models.CharField('departid',max_length=10)
 	departName          = models.CharField('departName',max_length=50)
 	def __unicode__(self):
-		return str(self.departName)
+		return self.departName
 
 class departIssue(admin.ModelAdmin):
 	list_display = ('departid','departName')		

@@ -22,7 +22,7 @@ class books(models.Model):
 	bookID           = models.CharField ('bookID',max_length=500)
 	
 	def __unicode__(self):
-		return str(self.bookID)
+		return self.bookID
   
 class booksIssue(admin.ModelAdmin):
 	list_display = ('user','doc','hospital','depart','docprof','hosAddr','time','patientName','patientID','tel','bookID')
