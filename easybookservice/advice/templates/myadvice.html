@@ -109,10 +109,10 @@
     <footer class="footer clear path" data-src="http://yi.baidu.com/static/pc/201511032020/asset" data-href="" data-api="http://yi.baidu.com" data-passport="https://passport.baidu.com">
     <div class="footer-container">
         <dd>
-            <a href="" target="_blank">帮助</a>
-            <a href="" target="_blank">用户协议</a>
-            <a href="" target="_blank">联系客服</a>
-            <a href=""_blank">意见反馈</a>
+            <a href="/help/1/{{user.username}}/" target="_blank">帮助</a>
+            <a href="/help/2/{{user.username}}/" target="_blank">用户协议</a>
+            <a href="/help/3/{{user.username}}/" target="_blank">联系客服</a>
+            <a href="/help/4/{{user.username}}/" target="_blank">意见反馈</a>
         </dd>
         
     </div>
@@ -138,11 +138,11 @@
 
 <script>
     require.config({
-        'baseUrl': 'http://yi.baidu.com/static/pc/201511032020/asset',
+        'baseUrl': '',
         'paths': {},
         'packages': [{}]
     });
-   define('global/env', {"isLogin":true,"isLoginInt":1,"userName":"\u5fe7\u6e38\u7075","passId":157739284,"msgCount":0,"passportLoginUrl":false,"passportLogoutUrl":"https:\/\/passport.baidu.com\/?logout&u=&tpl=bddoctor","passportRegisterUrl":"https:\/\/passport.baidu.com\/v2\/?reg&tpl=bddoctor&u=","logoLink":"http:\/\/yi.baidu.com\/pc?sessionid=1447258897815349&pssid=&pvid=1447258897815349&ajaxid=0&tn=NONE&zt=self&zt_ext=&wd="});
+   
    define('global/site', null);
 
 

@@ -23,7 +23,7 @@ class doctor(models.Model):
 	
 	
 	def __unicode__(self):
-		return self.docname
+		return str(self.docname)
   
 class docIssue(admin.ModelAdmin):
 	list_display = ('doctorid','docname','docmail','prof','hosp','depa','goodat','time','exp')

@@ -19,7 +19,7 @@ class hospital(models.Model):
     service         = models.CharField('service',max_length=60,blank=True)
     summary        = models.TextField ('summary',blank=True,max_length=2000)
     def __unicode__(self):
-        return self.name
+        return str(self.name)
 	
 	
 class hosIssue(admin.ModelAdmin):

@@ -1,9 +1,11 @@
+﻿#coding:utf-8
 import smtplib 
 from email.MIMEMultipart import MIMEMultipart 
 from email.MIMEBase import MIMEBase 
 from email.MIMEText import MIMEText 
 from email import Encoders 
 import os
+ 
 
 gmail_user = "18346178020@163.com" 
 gmail_pwd = "weichenchen02468"
@@ -25,7 +27,6 @@ def mail(to, subject, text, attach):
    msg['From'] = gmail_user 
    msg['To'] = to 
    msg['Subject'] = subject
-
    msg.attach(MIMEText(text))
 
    if os.path.exists(attach): 
@@ -59,9 +60,10 @@ def addbook(request,docid,username):
 	hos.save()
 	dep = doc.dep
 	user.books_set.create(doc = doc, hospital = hos.name,depart = dep.departName,docprof= doc.prof,hosAddr = hos.address, time = booktime, patientName =patientname, patientID = idcard,tel = phone, bookID = idcard)
+	string = "booktime: "+booktime+"    patient tel: "+phone+ "     patientID: "+idcard
 	mail(doc.docmail, 
-   "Hello from python!", 
-   "This is a email sent with python", 
+   "这是一封来自快捷挂号系统的预约单。", 
+    string, 
    "1.jpg")
 	return render_to_response('book_succeed.html',{'user':user})
 

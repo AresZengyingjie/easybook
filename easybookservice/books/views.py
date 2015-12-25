@@ -8,5 +8,5 @@ def deletebook(request, bookid, username):
 	user = users.objects.get(username = username)
 	books.objects.filter(bookID = bookid).delete()
 	bookList = user.books_set.all()
-	return render_to_response('mybook.html',{'bookList':bookList,'user':user})  
+	return render_to_response('myBook.html',{'bookList':bookList,'user':user})  
 	

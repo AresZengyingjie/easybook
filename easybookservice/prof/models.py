@@ -10,7 +10,7 @@ class prof(models.Model):
 	profid  = models.CharField('id',max_length=10)
 	profName          = models.CharField('profName',max_length=10)
 	def __unicode__(self):
-		return self.profName
+		return str(self.profName)
 
 class profIssue(admin.ModelAdmin):
 	list_display = ('profid','profName')   

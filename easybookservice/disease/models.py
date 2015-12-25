@@ -21,7 +21,7 @@ class disease(models.Model):
 	intro           = models.TextField ('intro',blank=True,max_length=500)
 	
 	def __unicode__(self):
-		return self.disename
+		return str(self.disename)
   
 class diseIssue(admin.ModelAdmin):
 	list_display = ('diseaseid','disename','disenamel','diseSym','godepart','spread','position','highrisk','method','intro')

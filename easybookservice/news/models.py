@@ -9,12 +9,12 @@ class news(models.Model):
 		verbose_name_plural = verbose_name
 	newsid  = models.CharField('id',max_length=10)
 	title          = models.CharField('title',max_length=30)
-	subtitle      = models.CharField('subtitle',max_length=50)
+	url   =   models.CharField('url',max_length=100)
 	article       = models.TextField ('article',blank=True,max_length=2000)
 	def __unicode__(self):
-		return self.title
+		return str(self.title)
   
 class newsIssue(admin.ModelAdmin):
-	list_display = ('newsid','title','subtitle','article')
+	list_display = ('newsid','title','url','article')
   
 admin.site.register(news,newsIssue)	
